@@ -13,11 +13,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "marca_produto")
+@Table(name = "categoria_produto")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MarcaProduto implements Serializable {
+public class CategoriaProduto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,4 @@ public class MarcaProduto implements Serializable {
 
     @Column(nullable = false)
     private String nomeDesc;
-
 }
