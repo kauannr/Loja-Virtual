@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.loja.lojavirtual.entities.enums.StatusContaPagar;
 import com.loja.lojavirtual.entities.pessoa.Pessoa;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -51,4 +52,8 @@ public class ContaPagar {
     @ManyToOne
     @JoinColumn(name = "pessoa_forn_id", nullable = false, foreignKey = @ForeignKey(name = "pessoa_forn_fk"))
     private Pessoa pessoa_fonercedor;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "forma_pagamento_id", nullable = false, foreignKey = @ForeignKey(name = "forma_pagamento_fk", value = ConstraintMode.CONSTRAINT))
+    private FormaPagamento formaPagamento;
 }

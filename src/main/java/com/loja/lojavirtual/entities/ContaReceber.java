@@ -2,9 +2,12 @@ package com.loja.lojavirtual.entities;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
+
 import com.loja.lojavirtual.entities.enums.StatusContaReceber;
 import com.loja.lojavirtual.entities.pessoa.Pessoa;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,18 +33,27 @@ public class ContaReceber {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String descricao;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private StatusContaReceber status;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private LocalDate dataVencimento;
 
     @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private LocalDate dataPagamento;
 
+    @Column(nullable = false)
+    @Min(value = 0, message = "Valor total não pode ser negativo")
     private Double valorTotal;
+
+    @Column(nullable = false)
+    @Min(value = 0, message = "Valor de desconto não pode ser negativo")
     private Double valorDesconto;
 
     @ManyToOne
