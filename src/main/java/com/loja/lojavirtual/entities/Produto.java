@@ -1,5 +1,7 @@
 package com.loja.lojavirtual.entities;
 
+import javax.validation.constraints.Min;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,9 +35,11 @@ public class Produto {
     private Double profundidade;
 
     @Column(nullable = false)
+    @Min(value = 0, message = "Valor da venda não deve ser negativo")
     private Double valorVenda;
 
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Min(value = 0, message = "Qauntiade de estoque não deve ser negativa")
     private Integer qtdEstoque;
 
     @Column(columnDefinition = "INTEGER DEFAULT 0")
@@ -44,6 +48,7 @@ public class Produto {
     private String linkYoutube;
 
     @Column(nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Min(value = 0, message = "Qauntiade de cliques não deve ser negativo")
     private Integer quantidadeClique;
 
     private Boolean alertaQtdEstoque = false;
