@@ -1,4 +1,4 @@
-package com.loja.lojavirtual.entities;
+package com.loja.lojavirtual.entities.contas;
 
 import java.time.LocalDate;
 

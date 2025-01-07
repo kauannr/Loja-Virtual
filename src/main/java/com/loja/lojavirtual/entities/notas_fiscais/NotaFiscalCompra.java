@@ -1,9 +1,10 @@
-package com.loja.lojavirtual.entities;
+package com.loja.lojavirtual.entities.notas_fiscais;
 
 import java.time.LocalDate;
 
 import javax.validation.constraints.Min;
 
+import com.loja.lojavirtual.entities.contas.ContaPagar;
 import com.loja.lojavirtual.entities.pessoa.Pessoa;
 
 import jakarta.persistence.Column;

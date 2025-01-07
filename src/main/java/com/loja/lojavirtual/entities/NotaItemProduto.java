@@ -1,5 +1,7 @@
 package com.loja.lojavirtual.entities;
 
+import com.loja.lojavirtual.entities.notas_fiscais.NotaFiscalCompra;
+
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;

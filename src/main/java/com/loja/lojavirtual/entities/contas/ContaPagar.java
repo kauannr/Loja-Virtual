@@ -1,7 +1,8 @@
-package com.loja.lojavirtual.entities;
+package com.loja.lojavirtual.entities.contas;
 
 import java.time.LocalDate;
 
+import com.loja.lojavirtual.entities.FormaPagamento;
 import com.loja.lojavirtual.entities.enums.StatusContaPagar;
 import com.loja.lojavirtual.entities.pessoa.Pessoa;
 
