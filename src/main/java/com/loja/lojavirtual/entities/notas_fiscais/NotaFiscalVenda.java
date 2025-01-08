@@ -1,22 +1,28 @@
 package com.loja.lojavirtual.entities.notas_fiscais;
 
+import com.loja.lojavirtual.entities.VendaLoja;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class NotaFiscalVenda {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(nullable = false)
@@ -34,7 +40,7 @@ public class NotaFiscalVenda {
     @Column(nullable = false, columnDefinition = "text")
     private String pdf;
 
-
-
+    @OneToOne
+    private VendaLoja vendaLoja;
 
 }
