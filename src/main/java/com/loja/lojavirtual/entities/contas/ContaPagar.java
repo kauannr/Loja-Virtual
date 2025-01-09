@@ -2,10 +2,14 @@ package com.loja.lojavirtual.entities.contas;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Min;
+
 import com.loja.lojavirtual.entities.FormaPagamento;
 import com.loja.lojavirtual.entities.enums.StatusContaPagar;
 import com.loja.lojavirtual.entities.pessoa.Pessoa;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,8 +20,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,19 +34,27 @@ public class ContaPagar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String descricao;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private StatusContaPagar status;
 
-    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    @FutureOrPresent
     private LocalDate dataVencimento;
 
-    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private LocalDate dataPagamento;
 
+    @Column(nullable = false)
+    @Min(value = 0, message = "valor total na entidade ContaPagar não pode ser negativo")
     private Double valorTotal;
-    private Double valorDesconto;
+
+    @Column(nullable = false)
+    @Min(value = 0, message = "valor do desconto na entidade ContaPagar não pode ser negativo")
+    private Double valorDesconto = 0.0;
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "pessoa_fk"))

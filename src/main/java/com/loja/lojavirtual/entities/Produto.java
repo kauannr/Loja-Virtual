@@ -27,11 +27,20 @@ public class Produto {
     @Column(nullable = false, columnDefinition = "text", length = 2000)
     private String descricao;
 
+    @Column(nullable = false)
     private String tipoUnidade;
 
+    @Column(nullable = false)
+    @Min(value = 0, message = "Peso em gramas na entidade Produto nnão deve ser menor que 0")
     private Double pesoEmGramas;
+
+    @Column(nullable = false)
     private Double largura;
+
+    @Column(nullable = false)
     private Double altura;
+
+    @Column(nullable = false)
     private Double profundidade;
 
     @Column(nullable = false)
@@ -51,6 +60,10 @@ public class Produto {
     @Min(value = 0, message = "Qauntiade de cliques não deve ser negativo")
     private Integer quantidadeClique;
 
+    @Column(nullable = false)
     private Boolean alertaQtdEstoque = false;
+
+    @Column(nullable = false)
+    private Boolean ativo = true;
 
 }

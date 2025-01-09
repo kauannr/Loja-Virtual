@@ -17,8 +17,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,20 +38,18 @@ public class ContaReceber {
     @Column(nullable = false)
     private StatusContaReceber status;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private LocalDate dataVencimento;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private LocalDate dataPagamento;
 
     @Column(nullable = false)
-    @Min(value = 0, message = "Valor total não pode ser negativo")
+    @Min(value = 0, message = "Valor total na entidade ContaReceber pode ser negativo")
     private Double valorTotal;
 
     @Column(nullable = false)
-    @Min(value = 0, message = "Valor de desconto não pode ser negativo")
+    @Min(value = 0, message = "Valor de desconto na entidade ContaReceber não pode ser negativo")
     private Double valorDesconto;
 
     @ManyToOne

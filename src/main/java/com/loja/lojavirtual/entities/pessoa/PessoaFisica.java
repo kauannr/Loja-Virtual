@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +19,6 @@ public class PessoaFisica extends Pessoa {
     @Column(nullable = false)
     private String cpf;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private LocalDate dataNascimento;
 }
