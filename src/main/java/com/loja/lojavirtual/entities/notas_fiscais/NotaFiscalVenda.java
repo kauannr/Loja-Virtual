@@ -3,10 +3,13 @@ package com.loja.lojavirtual.entities.notas_fiscais;
 import com.loja.lojavirtual.entities.VendaLoja;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,6 +44,7 @@ public class NotaFiscalVenda {
     private String pdf;
 
     @OneToOne
+    @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "vendaLoja_fk", value = ConstraintMode.CONSTRAINT))
     private VendaLoja vendaLoja;
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.loja.lojavirtual.entities.AvaliacaoProduto;
 
 @Repository
-public interface AvaliacaoProdutoRepository extends JpaRepository<Long, AvaliacaoProduto>{
+public interface AvaliacaoProdutoRepository extends JpaRepository<AvaliacaoProduto, Long>{
     
 }
