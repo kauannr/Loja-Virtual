@@ -31,3 +31,16 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignorar arquivos fora do projeto
+/*
+
+# Exceto o diretório do projeto
+!CURSO ALEX/Loja Virtual/
+
+# Ignorar diretórios comuns do sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
